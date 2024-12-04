@@ -35,11 +35,11 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow *:text-gray-700">
                         {links}
                     </ul>
                 </div>
-                <a className={`btn btn-ghost p-1 text-xl md:text-2xl font-bold text-primary-color animate__animated animate__backInLeft ${user && ' hidden sm:flex'} `}>VISA_NAVIGATOR</a>
+                <a className={`btn btn-ghost p-1 text-xl md:text-2xl font-bold  hidden sm:flex`}>VISA_NAVIGATOR</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 font-semibold">
@@ -58,10 +58,10 @@ const Navbar = () => {
                                     :<FaCircleUser className="text-[35px]"></FaCircleUser>
                                 }
                             </div>
-                            <button onClick={logOut} className=" font-semibold text-lg px-3 sm:px-5 py-2 rounded-xl ">LogOut</button>
+                            <button onClick={logOut} className=" font-semibold text-lg px-3 sm:px-5 py-2 rounded-xl  hover:bg-black bg-primary-color text-white">LogOut</button>
                         </div>
                         :
-                        <Link to={'/authentication'} className=" font-semibold text-lg px-3 sm:px-5 py-2 rounded-xl">Login</Link>
+                        <Link to={'/authentication'} className=" font-semibold text-lg px-3 sm:px-5 py-2 rounded-xl hover:bg-black bg-primary-color text-white">Login</Link>
                 }
             </div>
 

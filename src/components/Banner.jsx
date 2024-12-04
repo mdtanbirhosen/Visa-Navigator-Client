@@ -7,23 +7,23 @@ const Banner = () => {
     const slides = [
         {
             id: 1,
-            image: "./banner-bg.jpg",
-            title: "Welcome to Lingo Bingo",
+            image: "https://i.ibb.co/jZZLwt5/waterfall-2301249-960-720.jpg",
+            title: "Simplifying Your Visa Journey With Expertise and care",
         },
         {
             id: 2,
-            image: "https://i.ibb.co/m8Fwwqh/banner-3.jpg",
-            title: "Join Our Community",
+            image: "https://i.ibb.co/k0szBnW/lake-3962018-960-720.jpg",
+            title: "Simplifying Your Visa Journey With Expertise and care",
         },
         {
             id: 3,
-            image: "https://i.ibb.co/mGtmmLx/depositphotos-18837227-stock-illustration-a-boy-writing.jpg",
-            title: "Learn Languages Effectively",
+            image: "https://i.ibb.co/bWwSJpB/banner-bg.jpg",
+            title: "Simplifying Your Visa Journey With Expertise and care",
         },
         {
             id: 4,
-            image: "https://i.ibb.co/55sZtHp/bbd7fc8f765d2fa2943383c665274a26d3ada8a8-2560x1260.jpg",
-            title: "Start Your Journey Today",
+            image: "https://i.ibb.co/XtR5Kvy/the-scenery-5216660-960-720.jpg",
+            title: "Simplifying Your Visa Journey With Expertise and care",
         },
     ];
 
@@ -37,28 +37,25 @@ const Banner = () => {
 
     return (
         <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
-            {/* Navbar Over Image */}
-            <div className="absolute inset-0 z-50">
+            <div className="absolute inset-0 z-50 *:text-white max-w-7xl mx-auto">
                 <Navbar />
             </div>
 
-            {/* Dynamic Background */}
             <div
                 className="absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-700"
                 style={{
-                    backgroundImage: `url(${slides[currentSlide].image})`,
+                    backgroundImage: `
+                        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent),
+                        url(${slides[currentSlide].image})
+                    `,
                 }}
             ></div>
 
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#3646558b] via-transparent to-[#3646558b] z-10"></div>
-
-            {/* Text Overlay */}
-            <div className="absolute inset-0 flex flex-col justify-center items-center z-20 text-white">
-                <h2 className="text-2xl sm:text-3xl font-bold">{slides[currentSlide].title}</h2>
+            <div className="absolute inset-0 flex flex-col justify-center items-start max-w-7xl mx-auto  text-white">
+                <h2 className="text-3xl md:text-5xl lg:text-7xl md:w-2/3 lg:w-1/2 mb-5 mt-5 font-bold">{slides[currentSlide].title}</h2>
+                <button className="z-50 px-7 py-3 font-semibold text-primary-color border-primary-color border-2 rounded-lg hover:text-white hover:bg-primary-color">Get Started</button>
             </div>
 
-            {/* Pagination */}
             <div className="absolute inset-x-0 bottom-4 flex justify-center space-x-2 z-30">
                 {slides.map((_, index) => (
                     <button
