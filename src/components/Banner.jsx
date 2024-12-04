@@ -51,7 +51,7 @@ const Banner = () => {
                 }}
             ></div>
 
-            <div className="absolute inset-0 flex flex-col justify-center items-start max-w-7xl mx-auto  text-white">
+            <div className="absolute inset-0 flex flex-col justify-center px-3 items-start max-w-7xl mx-auto  text-white">
                 <h2 className="text-3xl md:text-5xl lg:text-7xl md:w-2/3 lg:w-1/2 mb-5 mt-5 font-bold">{slides[currentSlide].title}</h2>
                 <button className="z-50 px-7 py-3 font-semibold text-primary-color border-primary-color border-2 rounded-lg hover:text-white hover:bg-primary-color">Get Started</button>
             </div>

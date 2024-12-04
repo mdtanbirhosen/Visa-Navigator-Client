@@ -25,9 +25,9 @@ const Footer = () => {
                 <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Logo and Description */}
                     <div>
-                        <h3 className="text-2xl font-bold mb-4">CONSULTVIZA</h3>
+                        <h3 className="text-2xl font-bold mb-4">Visa_Navigator</h3>
                         <p className="text-sm">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
+                            Thanks for visiting our page hopefully this website fullfil your requirement.you can give us your feedback by subscribing us.
                         </p>
                         <div className="flex space-x-4 mt-4">
                             <a href="#" className="text-xl">

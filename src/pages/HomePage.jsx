@@ -7,8 +7,8 @@ const HomePage = () => {
             <header>
             <Banner></Banner>
             </header>
-            <main className="min-h-[calc(100vh-500px)]">
-
+            <main className="min-h-[calc(100vh-1039px)]">
+        
             </main>
             <footer>
                 <Footer></Footer>
