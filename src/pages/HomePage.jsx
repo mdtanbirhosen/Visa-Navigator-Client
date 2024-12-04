@@ -11,8 +11,9 @@ const HomePage = () => {
             <main className="min-h-[calc(100vh-1039px)]">
                 
                 {/* Latest visas section starts here  */}
-                <section className="bg-[#EDF5FF] pt-10">
+                <section className="bg-[#EDF5FF] py-10">
                     <LatestVisas></LatestVisas>
+                
                 </section>
                 {/* Latest visas section ends here  */}
             </main>

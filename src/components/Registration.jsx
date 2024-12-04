@@ -73,7 +73,7 @@ const Registration = () => {
                         <input
                             type="text"
                             placeholder="Enter your name"
-                            className="px-5 outline-none py-5 bg-white w-full rounded-xl"
+                            className="px-5 outline-primary-color border-2 py-5 bg-white w-full rounded-xl"
                             name="name"
                         />
                     </div>
@@ -87,7 +87,7 @@ const Registration = () => {
                         <input
                             type="text"
                             placeholder="Enter your photo link"
-                            className="px-5 outline-none py-5 bg-white w-full rounded-xl"
+                            className="px-5 outline-primary-color border-2 py-5 bg-white w-full rounded-xl"
                             name="photo"
                         />
                     </div>
@@ -101,7 +101,7 @@ const Registration = () => {
                         <input
                             type="email"
                             placeholder="Enter your email address"
-                            className="px-5 outline-none py-5 bg-white w-full rounded-xl"
+                            className="px-5 outline-primary-color border-2 py-5 bg-white w-full rounded-xl"
                             name="email"
                             required
                         />
@@ -116,7 +116,7 @@ const Registration = () => {
                         <input
                             type="password"
                             placeholder="Enter your password"
-                            className="px-5 outline-none py-5 bg-white w-full rounded-xl"
+                            className="px-5 outline-primary-color border-2 py-5 bg-white w-full rounded-xl"
                             name="password"
                             required
                         />

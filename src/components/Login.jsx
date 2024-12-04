@@ -49,7 +49,7 @@ const Login = () => {
                         </label>
                         <input type="email"
                             placeholder="Enter your email address"
-                            className="px-5 outline-none py-5 bg-white w-full rounded-xl"
+                            className="px-5 outline-primary-color border-2 py-5 bg-white w-full rounded-xl"
                             name='email'
                             
                             required />
@@ -61,7 +61,7 @@ const Login = () => {
                         </label>
                         <input type="password"
                             placeholder="Enter your password"
-                            className="px-5 outline-none py-5 bg-white w-full rounded-xl"
+                            className="px-5 outline-primary-color border-2 py-5 bg-white w-full rounded-xl"
                             name='password'
 
                             required />

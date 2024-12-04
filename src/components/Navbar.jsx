@@ -1,3 +1,4 @@
+import { Tooltip } from 'react-tooltip'
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
@@ -15,6 +16,15 @@ const Navbar = () => {
 
 
     </>
+
+
+    {/* <div className="example-container">
+  <a data-tooltip-id="my-tooltip-border" data-tooltip-content="Hello world!">
+    ◕‿‿◕
+  </a>
+  <Tooltip id="my-tooltip-border" border="1px solid red" />
+</div> */}
+
     return (
         <div className="navbar ">
             <div className="navbar-start">
@@ -51,12 +61,14 @@ const Navbar = () => {
                 {
                     user && user?.email ?
                         <div className="flex items-center gap-3">
-                            <div>
+                            <div data-tooltip-id="my-tooltip-border" data-tooltip-content={`${user?.displayName ? user.displayName : `Display name isn't available for user ${user?.email}`}`}>
                                 {
                                     user?.photoURL ?
-                                    <img className="h-[35px] w-[35px] rounded-full" src={user?.photoURL} alt="" />
-                                    :<FaCircleUser className="text-[35px]"></FaCircleUser>
+                                        <img className="h-[35px] w-[35px] rounded-full" src={user?.photoURL} alt="" />
+                                        : <FaCircleUser className="text-[35px]"></FaCircleUser>
                                 }
+                                <Tooltip id="my-tooltip-border" border="1px solid red" />
+
                             </div>
                             <button onClick={logOut} className=" font-semibold text-lg px-3 sm:px-5 py-2 rounded-xl  hover:bg-black bg-primary-color text-white">LogOut</button>
                         </div>
