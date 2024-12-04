@@ -13,7 +13,7 @@ const Footer = () => {
                         <input
                             type="email"
                             placeholder="Type Your Email"
-                            className="input input-bordered w-full sm:w-auto max-w-xs"
+                            className="input input-bordered w-full text-black sm:w-auto max-w-xs"
                         />
                         <button className="btn btn-dark">Subscribe</button>
                     </div>
