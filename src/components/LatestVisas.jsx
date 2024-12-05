@@ -140,7 +140,7 @@ const LatestVisas = () => {
                                     <img
                                         src={visaInfo.image}
                                         alt={`${visaInfo.country} flag`}
-                                        className="h-[200px] w-full rounded-lg object-cover"
+                                        className="h-[150px] md:h-[200px] w-full rounded-lg object-cover"
                                     />
                                     
                                 </div>
