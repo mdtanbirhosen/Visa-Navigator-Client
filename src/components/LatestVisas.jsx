@@ -1,128 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ReuseableTitle from "./ReuseableTitle";
 import { FaArrowRight } from "react-icons/fa6";
 
 const LatestVisas = () => {
-    const visaInformation = [
-        {
-            _id: 1,
-            country: "United States",
-            image: "https://example.com/us-flag.png",
-            visa_type: "Tourist Visa",
-            processing_time: "10-15 business days",
-            required_documents: [
-                "Valid passport",
-                "Visa application form",
-                "Recent passport-sized photograph",
-                "Proof of financial means",
-                "Travel itinerary",
-                "Proof of accommodation"
-            ],
-            description: "The tourist visa allows you to visit the United States for leisure, tourism, or visiting friends and family.",
-            age_restriction: "None",
-            fee: "$160",
-            validity: "6 months",
-            application_method: "Online and in-person at the nearest U.S. consulate or embassy"
-        },
-        {
-            _id: 2,
-            country: "Canada",
-            image: "https://example.com/canada-flag.png",
-            visa_type: "Study Permit",
-            processing_time: "4-6 weeks",
-            required_documents: [
-                "Valid passport",
-                "Letter of acceptance from a designated learning institution",
-                "Proof of funds",
-                "Recent passport-sized photograph",
-                "Medical examination report (if required)"
-            ],
-            description: "The study permit allows you to study at designated learning institutions in Canada.",
-            age_restriction: "18+ unless accompanied by a guardian",
-            fee: "CAD $150",
-            validity: "Duration of the study program + 90 days",
-            application_method: "Online or through Visa Application Centers (VACs)"
-        },
-        {
-            _id: 3,
-            country: "Japan",
-            image: "https://example.com/japan-flag.png",
-            visa_type: "Work Visa",
-            processing_time: "1-3 months",
-            required_documents: [
-                "Valid passport",
-                "Visa application form",
-                "Recent passport-sized photograph",
-                "Certificate of Eligibility",
-                "Employment contract"
-            ],
-            description: "The work visa allows you to work in Japan in fields like education, engineering, or skilled labor.",
-            age_restriction: "18+",
-            fee: "¥3,000 - ¥6,000 depending on single or multiple entry",
-            validity: "1-5 years",
-            application_method: "In-person at the nearest Japanese embassy or consulate"
-        },
-        {
-            _id: 4,
-            country: "United States",
-            image: "https://example.com/us-flag.png",
-            visa_type: "Tourist Visa",
-            processing_time: "10-15 business days",
-            required_documents: [
-                "Valid passport",
-                "Visa application form",
-                "Recent passport-sized photograph",
-                "Proof of financial means",
-                "Travel itinerary",
-                "Proof of accommodation"
-            ],
-            description: "The tourist visa allows you to visit the United States for leisure, tourism, or visiting friends and family.",
-            age_restriction: "None",
-            fee: "$160",
-            validity: "6 months",
-            application_method: "Online and in-person at the nearest U.S. consulate or embassy"
-        },
-        {
-            _id: 5,
-            country: "Canada",
-            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbelBCC8RfBQ4nwGsbRFoOyUxpdQ0fO4VE8g&s",
-            visa_type: "Study Permit",
-            processing_time: "4-6 weeks",
-            required_documents: [
-                "Valid passport",
-                "Letter of acceptance from a designated learning institution",
-                "Proof of funds",
-                "Recent passport-sized photograph",
-                "Medical examination report (if required)"
-            ],
-            description: "The study permit allows you to study at designated learning institutions in Canada.",
-            age_restriction: "18+ unless accompanied by a guardian",
-            fee: "CAD $150",
-            validity: "Duration of the study program + 90 days",
-            application_method: "Online or through Visa Application Centers (VACs)"
-        },
-        {
-            _id: 6,
-            country: "Japan",
-            image: "https://example.com/japan-flag.png",
-            visa_type: "Work Visa",
-            processing_time: "1-3 months",
-            required_documents: [
-                "Valid passport",
-                "Visa application form",
-                "Recent passport-sized photograph",
-                "Certificate of Eligibility",
-                "Employment contract"
-            ],
-            description: "The work visa allows you to work in Japan in fields like education, engineering, or skilled labor.",
-            age_restriction: "18+",
-            fee: "¥3,000 - ¥6,000 depending on single or multiple entry",
-            validity: "1-5 years",
-            application_method: "In-person at the nearest Japanese embassy or consulate"
-        }
-    ];
-
-
+    const loadedVisaInformation = useLoaderData()
+    const visaInformation = loadedVisaInformation.slice((loadedVisaInformation.length - 6),loadedVisaInformation.length).reverse()
     return (
         <div className="max-w-7xl mx-auto">
             <div>
@@ -138,7 +20,7 @@ const LatestVisas = () => {
                             <div className="p-3">
                                 <div className="p-2 rounded-lg bg-white flex justify-between items-center">
                                     <img
-                                        src={visaInfo.image}
+                                        src={visaInfo.countryImage}
                                         alt={`${visaInfo.country} flag`}
                                         className="h-[150px] md:h-[200px] w-full rounded-lg object-cover"
                                     />
@@ -147,21 +29,21 @@ const LatestVisas = () => {
                             </div>
                             <div className="p-4 flex-1 space-y-1">
                                 <div>
-                                    <h2 className="text-xl font-bold text-gray-800">{visaInfo.country}</h2>
+                                    <h2 className="text-xl font-bold text-gray-800">{visaInfo.countryName}</h2>
                                     <p className="text-gray-600">
-                                        <strong>Visa Type:</strong> {visaInfo.visa_type}
+                                        <strong>Visa Type:</strong> {visaInfo.visaType}
                                     </p>
                                     <p className="text-gray-600">
-                                        <strong>Processing Time:</strong> {visaInfo.processing_time}
+                                        <strong>Processing Time:</strong> {visaInfo.processingTime}
                                     </p>
                                     <p className="text-gray-600">
-                                        <strong>Fee:</strong> {visaInfo.fee}
+                                        <strong>Fee:</strong> {visaInfo.fee}$
                                     </p>
                                     <p className="text-gray-600">
                                         <strong>Validity:</strong> {visaInfo.validity}
                                     </p>
                                     <p className="text-gray-600">
-                                        <strong>Application Method:</strong> {visaInfo.application_method}
+                                        <strong>Application Method:</strong> {visaInfo.applicationMethod}
                                     </p>
                                 </div>
                             </div>

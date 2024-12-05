@@ -19,11 +19,13 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <HomePage></HomePage>
+                element: <HomePage></HomePage>,
+                loader: ()=> fetch('http://localhost:4000/visas')
             },
             {
                 path: "/all_visas",
-                element: <AllVisasPage></AllVisasPage>
+                element: <AllVisasPage></AllVisasPage>,
+                loader: ()=> fetch('http://localhost:4000/visas')
             },
             {
                 path: "/add_visa",
@@ -39,7 +41,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/visa_details/:id",
-                element: <PrivateRoutes><VisaDetailsPage></VisaDetailsPage></PrivateRoutes>
+                element: <PrivateRoutes><VisaDetailsPage></VisaDetailsPage></PrivateRoutes>,
+                loader: ({params})=> fetch(`http://localhost:4000/visa/${params.id}`)
             },
             {
                 path: "/authentication",
