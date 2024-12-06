@@ -1,8 +1,11 @@
 import Swal from "sweetalert2";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AddVisaPage = () => {
+    const {user} = useContext(AuthContext)
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -20,7 +23,7 @@ const AddVisaPage = () => {
 
 
 
-        const newVisa = { countryName, countryImage, visaType, processingTime, requiredDocuments, description, ageRestriction, fee, validity, applicationMethod }
+        const newVisa = { countryName, countryImage, visaType, processingTime, requiredDocuments, description, ageRestriction, fee, validity, applicationMethod ,addByEmail:user?.email}
 
         console.log(newVisa)
 
@@ -51,10 +54,10 @@ const AddVisaPage = () => {
             <header className="max-w-7xl mx-auto">
                 <Navbar></Navbar>
             </header>
-            <main className="min-h-[calc(100vh-500px)]">
+            <main className="">
 
                 {/* Add your visa here*/}
-                <section className="bg-[#EDF5FF] pt-10">
+                <section className="bg-[#EDF5FF] pt-10 min-h-[calc(100vh-500px)]">
                     <div className="max-w-7xl  mx-auto md:py-10 py-0  lg:py-16 rounded-xl">
                         <h2 className="font-semibold text-2xl md:text-4xl text-center">Add A New Visa</h2>
                         <div className="divider"></div>
