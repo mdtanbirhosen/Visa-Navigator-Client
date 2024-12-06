@@ -1,10 +1,21 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ReuseableTitle from "./ReuseableTitle";
 import { FaArrowRight } from "react-icons/fa6";
+import { useEffect, useState } from "react";
 
 const LatestVisas = () => {
-    const loadedVisaInformation = useLoaderData()
-    const visaInformation = loadedVisaInformation.slice((loadedVisaInformation.length - 6),loadedVisaInformation.length).reverse()
+    const [loadedVisaInformation, setLoadedVisaInformation]= useState([])
+    const visaInformation = loadedVisaInformation?.slice((loadedVisaInformation.length - 6),loadedVisaInformation?.length)?.reverse()
+
+    useEffect(()=>{
+        fetch('https://visa-navigator-server-side.vercel.app/visas')
+        .then(res =>res.json())
+        .then(data => {
+            setLoadedVisaInformation(data)
+        })
+    })
+
+
     return (
         <div className="max-w-7xl mx-auto">
             <div>

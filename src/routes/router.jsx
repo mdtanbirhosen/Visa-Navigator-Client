@@ -20,7 +20,6 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <HomePage></HomePage>,
-                loader: ()=> fetch('https://visa-navigator-server-side.vercel.app/visas')
             },
             {
                 path: "/all_visas",

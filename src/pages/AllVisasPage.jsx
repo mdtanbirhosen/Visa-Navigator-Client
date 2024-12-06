@@ -4,14 +4,31 @@ import Navbar from "../components/Navbar";
 import ReuseableTitle from "../components/ReuseableTitle";
 
 const AllVisasPage = () => {
-    const loadedVisaInformation = useLoaderData()
+    const loadedVisaInformation = useLoaderData();
+    const handleFilterBy =(e)=>{
+        console.log(e)
+    }
     return (
         <div>
             <header className="max-w-7xl mx-auto">
                 <Navbar></Navbar>
             </header>
             <main className="min-h-[calc(100vh-500px)]">
+                <section className="max-w-7xl mx-auto">
+                    <div className="flex justify-end">
+                        
+                    <div className="max-w-48">
+                        <select name="visaType" onChange={handleFilterBy} className="select w-full">
+                            <option disabled selected>Filter By Visa Type</option>
+                            <option>Tourist visa</option>
+                            <option>Student visa</option>
+                            <option>Official visa</option>
+                            <option>Working Holiday Visa</option>
 
+                        </select>
+                    </div>
+                    </div>
+                </section>
                 {/* Visa details is here */}
                 <section className="bg-[#EDF5FF] pt-10">
                     <div className="max-w-7xl mx-auto">
@@ -63,7 +80,7 @@ const AllVisasPage = () => {
                                     )
                                 }
                             </div>
-                            
+
                         </div>
                     </div>
                 </section>
