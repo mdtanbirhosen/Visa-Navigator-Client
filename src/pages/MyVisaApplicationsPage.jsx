@@ -8,7 +8,7 @@ const MyVisaApplicationsPage = () => {
     const { user } = useContext(AuthContext)
     const [appliedVisas, setAppliedVisas] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:4000/appliedVisas/${user.email}`)
+        fetch(`https://visa-navigator-server-side.vercel.app/appliedVisas/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -24,7 +24,7 @@ const MyVisaApplicationsPage = () => {
 
 
     const handleCancel = (id) => {
-        fetch(`http://localhost:4000/appliedVisas/${id}`, {
+        fetch(`https://visa-navigator-server-side.vercel.app/appliedVisas/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

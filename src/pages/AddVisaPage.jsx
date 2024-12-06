@@ -27,7 +27,7 @@ const AddVisaPage = () => {
 
         console.log(newVisa)
 
-        fetch('http://localhost:4000/visas', {
+        fetch('https://visa-navigator-server-side.vercel.app/visas', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

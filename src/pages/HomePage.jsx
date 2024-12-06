@@ -1,6 +1,8 @@
+import { FaAffiliatetheme, FaAlgolia, FaAmazon, FaFacebook, FaGoogle, FaInstagram, FaMicrosoft, FaTwitter } from "react-icons/fa6";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import LatestVisas from "../components/LatestVisas";
+import { FaAirbnb } from "react-icons/fa";
 
 const HomePage = () => {
     return (
@@ -16,9 +18,9 @@ const HomePage = () => {
 
                 </section>
                 <section className="bg-[#EDF5FF] py-10">
-                    <div className="bg-gray-900 text-green-300 py-16">
+                    <div className=" bg-white text-primary-color py-16">
                         {/* Visa Highlights Section */}
-                        <div className="text-center mb-16">
+                        <div className="text-center text-black mb-16">
                             <h2 className="text-4xl font-bold">Visa Highlights</h2>
                             <p className="text-lg mt-4">
                                 Discover why our visa services stand out. Here are some of our key features.
@@ -66,17 +68,25 @@ const HomePage = () => {
                             </div>
                         </div>
 
-                        {/* Trusted by Leading Companies */}
-                        <div className="text-center mt-16">
-                            <h2 className="text-4xl font-bold">Trusted by Leading Companies</h2>
-                            <div className="flex flex-wrap justify-center items-center gap-8 mt-8">
-                                <i className="text-6xl bi bi-google"></i>
-                                <i className="text-6xl bi bi-paypal"></i>
-                                <i className="text-6xl bi bi-amazon"></i>
-                                <i className="text-6xl bi bi-apple"></i>
-                                <i className="text-6xl bi bi-microsoft"></i>
-                                <i className="text-6xl bi bi-facebook"></i>
-                            </div>
+
+                    </div>
+                </section>
+                {/* Trusted by Leading Companies */}
+                <section className="bg-[#EDF5FF] py-10">
+                    <div className="text-center  text-primary-color   max-w-7xl mx-auto">
+                        <h2 className="text-4xl font-bold text-black">Trusted by Leading Companies</h2>
+                        <div className="flex flex-wrap justify-center items-center gap-8 mt-8 text-5xl">
+                            <FaFacebook />
+                            <FaInstagram />
+                            <FaTwitter />
+                            <FaAmazon/>
+                            <FaGoogle/>
+                            <FaMicrosoft/>
+                            <FaAirbnb/>
+                            <FaAffiliatetheme/>
+                            <FaAlgolia/>
+
+
                         </div>
                     </div>
                 </section>
