@@ -29,7 +29,12 @@ const AllVisasPage = () => {
                 <Navbar></Navbar>
             </header>
             <main className="min-h-[calc(100vh-500px)]">
-                <section className="max-w-7xl mx-auto">
+                <section className="max-w-7xl mx-auto ">
+                    
+                </section>
+                {/* Visa details is here */}
+                <section className="bg-[#EDF5FF] pt-10">
+                    <div className="max-w-7xl mx-auto">
                     <div className="flex justify-end">
                         <div className="max-w-48">
                             <select
@@ -49,10 +54,6 @@ const AllVisasPage = () => {
                             </select>
                         </div>
                     </div>
-                </section>
-                {/* Visa details is here */}
-                <section className="bg-[#EDF5FF] pt-10">
-                    <div className="max-w-7xl mx-auto">
                         <div>
                             <ReuseableTitle
                                 title={"All Visas"}

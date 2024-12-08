@@ -6,8 +6,8 @@ export default {
   ],
   theme: {
     extend: {
-      colors:{
-        'primary-color':'#FF7729'
+      colors: {
+        'primary-color': '#FF7729'
       }
     },
   },
@@ -15,4 +15,7 @@ export default {
     // eslint-disable-next-line no-undef
     require('daisyui'),
   ],
+  daisyui: {
+    themes: ["light", "dark"], // Add more themes if needed
+  },
 }

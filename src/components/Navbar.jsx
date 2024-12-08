@@ -1,10 +1,11 @@
 import { Tooltip } from 'react-tooltip'
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaCircleUser } from "react-icons/fa6";
 
-const Navbar = () => {
+const Navbar = ({ toggleTheme }) => {
+    const location = useLocation()
     const { user, logOut } = useContext(AuthContext)
 
     const links = <>
@@ -56,8 +57,14 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end">
-
+            <div className="navbar-end ">
+                {location &&
+                    <button
+                        onClick={toggleTheme}
+                        className="mr-4"
+                    >
+                        <input type="checkbox" className="toggle" defaultChecked />
+                    </button>}
                 {
                     user && user?.email ?
                         <div className="flex items-center gap-3">
@@ -80,7 +87,7 @@ const Navbar = () => {
 
 
 
-        </div>
+        </div >
     );
 };
 

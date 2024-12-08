@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 
-const Banner = () => {
+const Banner = ({toggleTheme}) => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const slides = [
@@ -38,7 +38,7 @@ const Banner = () => {
     return (
         <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
             <div className="absolute inset-0 z-50 *:text-white max-w-7xl mx-auto">
-                <Navbar />
+                <Navbar toggleTheme={toggleTheme} />
             </div>
 
             <div
