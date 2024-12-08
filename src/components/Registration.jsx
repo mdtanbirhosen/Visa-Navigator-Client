@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 const Registration = () => {
     const { createNewUser, setUser, loginUserWithGoogle ,updateProfileInfo} = useContext(AuthContext);
@@ -39,12 +40,15 @@ const Registration = () => {
                     // don't need to console 
                 })
                 .catch(error =>console.log(error.message))
-                // toast.success("Registration successful!");
                 navigate("/");
             })
             .catch((error) => {
                 console.error(error);
-                // toast.error("Registration failed. User already exist!");
+                Swal.fire({
+                    title: "Not Created",
+                    text: "I think this password and email is already added try another.",
+                    icon: "error"
+                  });
             });
     };
     // sign in with google
