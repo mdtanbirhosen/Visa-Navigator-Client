@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 
+// eslint-disable-next-line react/prop-types
 const Banner = ({toggleTheme}) => {
     const [currentSlide, setCurrentSlide] = useState(0);
 

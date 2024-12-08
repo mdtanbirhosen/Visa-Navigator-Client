@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate,  } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const { loginUser, loginUserWithGoogle } = useContext(AuthContext)
@@ -22,7 +23,12 @@ const Login = () => {
                 navigate(location?.state ? location.state : '/')
 
             })
-            .then(error => {
+            .catch(error => {
+                Swal.fire({
+                    title: "Invalid user or password",
+                    text: "Please register or check user name and password again.",
+                    icon: "error"
+                  });
                 console.log(error)
 
             })

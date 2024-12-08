@@ -4,6 +4,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaCircleUser } from "react-icons/fa6";
 
+// eslint-disable-next-line react/prop-types
 const Navbar = ({ toggleTheme }) => {
     const location = useLocation()
     const { user, logOut } = useContext(AuthContext)

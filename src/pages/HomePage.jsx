@@ -27,7 +27,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <header className="flex justify-between items-center px-6 py-4 bg-base-100">
+            <header className="flex justify-between items-center  bg-base-100">
                 <Banner toggleTheme={toggleTheme} />
                 
             </header>
