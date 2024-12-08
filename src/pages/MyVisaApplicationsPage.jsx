@@ -85,6 +85,15 @@ const MyVisaApplicationsPage = () => {
                                                 <p className="text-gray-600">
                                                     <strong>Application Method:</strong> {info.visaInfo.applicationMethod}
                                                 </p>
+                                                <p className="text-gray-600">
+                                                    <strong>Applied date: </strong> {info.appliedDate}
+                                                </p>
+                                                <p className="text-gray-600">
+                                                    <strong>Applicant&apos;s name :</strong> {info.fullName}
+                                                </p>
+                                                <p className="text-gray-600">
+                                                    <strong>Applicant&apos;s email :</strong> {info.email}
+                                                </p>
                                             </div>
                                         </div>
                                         <div className="p-4 mt-auto flex  gap-5">
