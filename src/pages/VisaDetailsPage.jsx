@@ -44,7 +44,7 @@ const VisaDetailsPage = () => {
             <main className="min-h-[calc(100vh-500px)]">
 
                 {/* Visa details is here */}
-                <section className="bg-[#EDF5FF] py-10 px-2">
+                <section className="bg-[#EDF5FF] pb-10 pt-20 px-2">
                     <h1 className="text-center font-semibold text-2xl md:text-3xl lg:text-4xl mb-3">Details for {singleVisa.countryName} visa</h1>
                     <div className="max-w-7xl mx-auto bg-white p-5 rounded-lg">
                         <div className="flex flex-col lg:flex-row gap-5">

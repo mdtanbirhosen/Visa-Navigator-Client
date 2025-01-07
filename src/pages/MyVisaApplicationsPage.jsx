@@ -53,7 +53,7 @@ const MyVisaApplicationsPage = () => {
             </header>
             <main>
                 {/* Visa details */}
-                <section className="bg-[#EDF5FF] pt-10 min-h-[calc(100vh-500px)]">
+                <section className="bg-[#EDF5FF] pb-10 pt-20 min-h-[calc(100vh-500px)]">
                     <div className="max-w-7xl mx-auto">
                         <div>
                             <ReuseableTitle

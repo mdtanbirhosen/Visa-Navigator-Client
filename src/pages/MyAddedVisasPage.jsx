@@ -112,7 +112,7 @@ const MyAddedVisasPage = () => {
             <main className="">
 
                 {/* Visa details is here */}
-                <section className="bg-[#EDF5FF] py-10 min-h-[calc(100vh-500px)]">
+                <section className="bg-[#EDF5FF] py-10 pt-20 min-h-[calc(100vh-500px)]">
                     <div className="max-w-7xl mx-auto">
                         <div>
                             <ReuseableTitle title={`Welcome ${user?.displayName || user?.email}`} paragraph={`Here are some visa information that you added to our website.You can also delete and Update your added visas information . Thanks for adding visas in our website ${user?.displayName || user?.email}.`}></ReuseableTitle>

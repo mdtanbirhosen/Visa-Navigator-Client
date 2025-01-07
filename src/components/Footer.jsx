@@ -1,4 +1,4 @@
-import { FaInstagram, FaFacebook, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import {  FaFacebook, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaGithub, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -25,16 +25,34 @@ const Footer = () => {
                 <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Logo and Description */}
                     <div>
-                        <h3 className="text-2xl font-bold mb-4">Visa_Navigator</h3>
+                        <h3 className="text-2xl font-bold mb-4 text-primary-color">Visa_Navigator</h3>
                         <p className="text-sm">
                             Thanks for visiting our page hopefully this website fullfil your requirement.you can give us your feedback by subscribing us.
                         </p>
-                        <div className="flex space-x-4 mt-4">
-                            <a href="#" className="text-xl">
-                                <FaInstagram />
+                        <div className='flex flex-wrap gap-4 py-5'>
+                            <a
+                                href="https://www.facebook.com/danger.ahaed.sstanbir.001/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-primary-color"
+                            >
+                                <FaFacebook className="text-3xl " />
                             </a>
-                            <a href="#" className="text-xl">
-                                <FaFacebook />
+                            <a
+                                href="https://github.com/mdtanbirhosen"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-primary-color"
+                            >
+                                <FaGithub className="text-3xl " />
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/md-tanbir-hosen-669056251/"
+                                target="_blank"
+                                className="hover:text-primary-color"
+                                title="Visit My LinkedIn!"
+                            >
+                                <FaLinkedin className="text-3xl  opacity-50 cursor-not-allowed" />
                             </a>
                         </div>
                     </div>
@@ -43,26 +61,9 @@ const Footer = () => {
                     <div>
                         <h4 className="text-lg font-bold mb-4">Quick Links</h4>
                         <ul className="space-y-2">
-                            <li>
-                                <Link to="/" className="hover:underline">
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/about" className="hover:underline">
-                                    About
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/contact" className="hover:underline">
-                                    Contact
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/testimonials" className="hover:underline">
-                                    Testimonials
-                                </Link>
-                            </li>
+                            <li className="link-hover"><Link to={'/'}>Home</Link></li>
+                            <li className="link-hover"><Link to={'/all_visas'}>All visas</Link></li>
+
                         </ul>
                     </div>
 
@@ -70,10 +71,9 @@ const Footer = () => {
                     <div>
                         <h4 className="text-lg font-bold mb-4">Visa</h4>
                         <ul className="space-y-2">
-                            <li>Work Visa</li>
-                            <li>Student Visa</li>
-                            <li>Business Visa</li>
-                            <li>Tour Visa</li>
+                            <li className="link-hover"><Link to={'/add_visa'}>Add visa</Link></li>
+                            <li className="link-hover"><Link to={'/my_added_visas'}>My added visas</Link></li>
+                            <li className="link-hover"><Link to={'/my_visa_application'}>My Visa applications</Link></li>
                         </ul>
                     </div>
 
@@ -83,15 +83,15 @@ const Footer = () => {
                         <ul className="space-y-2 text-sm">
                             <li className="flex items-center space-x-2">
                                 <FaMapMarkerAlt />
-                                <span>Plaza XYZ Street, XYZ City. XYZ</span>
+                                <span>Savar, Dhaka, Bangladesh.</span>
                             </li>
                             <li className="flex items-center space-x-2">
                                 <FaEnvelope />
-                                <span>xyz@gmail.com</span>
+                                <span>mdtanbirhosen912@gmail.com</span>
                             </li>
                             <li className="flex items-center space-x-2">
                                 <FaPhoneAlt />
-                                <span>+123-4567-890</span>
+                                <span>+8801888156886</span>
                             </li>
                         </ul>
                     </div>

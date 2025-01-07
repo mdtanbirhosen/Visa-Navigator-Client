@@ -7,12 +7,17 @@ import Footer from "../components/Footer";
 const AllVisasPage = () => {
     const loadedVisaInformation = useLoaderData();
     const [filterByVisaType, setFilterByVisaType] = useState("");
+    const [sortOrder, setSortOrder] = useState("asc"); // "asc" for ascending, "desc" for descending
 
     const handleFilterBy = (e) => {
         setFilterByVisaType(e.target.value);
     };
 
-    // Ensure loadedVisaInformation is an array before filtering
+    const handleSortOrder = () => {
+        setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    };
+
+    // Ensure loadedVisaInformation is an array before filtering and sorting
     const filteredVisas = Array.isArray(loadedVisaInformation)
         ? filterByVisaType
             ? loadedVisaInformation.filter(
@@ -23,37 +28,24 @@ const AllVisasPage = () => {
             : loadedVisaInformation
         : [];
 
+    const sortedVisas = filteredVisas.sort((a, b) => {
+        if (sortOrder === "asc") {
+            return a.countryName.localeCompare(b.countryName);
+        } else {
+            return b.countryName.localeCompare(a.countryName);
+        }
+    });
+
     return (
         <div>
-            <header className="max-w-7xl mx-auto">
+            <header className="max-w-7xl mx-auto ">
                 <Navbar></Navbar>
             </header>
             <main className="min-h-[calc(100vh-500px)]">
-                <section className="max-w-7xl mx-auto ">
-                    
-                </section>
                 {/* Visa details is here */}
-                <section className="bg-[#EDF5FF] pt-10">
+                <section className="bg-[#EDF5FF] pb-10 pt-20">
                     <div className="max-w-7xl mx-auto">
-                    <div className="flex justify-end">
-                        <div className="max-w-48">
-                            <select
-                                name="visaType"
-                                onChange={handleFilterBy}
-                                className="select w-full"
-                                defaultValue=""
-                            >
-                                <option value="" disabled>
-                                    Filter By Visa Type
-                                </option>
-                                <option value="">All</option>
-                                <option value="Tourist visa">Tourist visa</option>
-                                <option value="Student visa">Student visa</option>
-                                <option value="Official visa">Official visa</option>
-                                <option value="Working Holiday Visa">Working Holiday Visa</option>
-                            </select>
-                        </div>
-                    </div>
+
                         <div>
                             <ReuseableTitle
                                 title={"All Visas"}
@@ -62,9 +54,36 @@ const AllVisasPage = () => {
                                 }
                             ></ReuseableTitle>
                         </div>
-                        <div className="bg-white rounded-lg px-3 pb-3 pt-10">
+                        <div className="bg-white rounded-lg px-3 pb-10 pt-2">
+                            <div className="flex justify-between items-center mb-2 flex-wrap gap-5">
+                                {/* Filter dropdown */}
+                                <div className="max-w-48 ">
+                                    <select
+                                        name="visaType"
+                                        onChange={handleFilterBy}
+                                        className="select w-full text-xs md:text-base bg-primary-color font-semibold text-white"
+                                        defaultValue=""
+                                    >
+                                        <option className="bg-white text-gray-500" value="" disabled>
+                                            Filter By Visa Type
+                                        </option>
+                                        <option className="bg-white text-gray-500" value="">All</option>
+                                        <option className="bg-white text-gray-500" value="Tourist visa">Tourist visa</option>
+                                        <option className="bg-white text-gray-500" value="Student visa">Student visa</option>
+                                        <option className="bg-white text-gray-500" value="Official visa">Official visa</option>
+                                        <option className="bg-white text-gray-500" value="Working Holiday Visa">Working Holiday Visa</option>
+                                    </select>
+                                </div>
+                                {/* Sort button */}
+                                <button
+                                    onClick={handleSortOrder}
+                                    className="px-5 py-2 text-xs md:text-base bg-primary-color text-white font-semibold rounded-lg shadow-md hover:bg-primary-color-dark"
+                                >
+                                    Sort: {sortOrder === "asc" ? "Ascending" : "Descending"}
+                                </button>
+                            </div>
                             <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                                {filteredVisas.map((visaInfo) => (
+                                {sortedVisas.map((visaInfo) => (
                                     <div
                                         key={visaInfo._id}
                                         className="bg-[#EDF5FF] rounded-lg shadow-md overflow-hidden flex flex-col h-full"
@@ -95,6 +114,9 @@ const AllVisasPage = () => {
                                                 </p>
                                                 <p className="text-gray-600">
                                                     <strong>Validity:</strong> {visaInfo.validity}
+                                                </p>
+                                                <p className="text-gray-600">
+                                                    <strong>description:</strong> {visaInfo.description.slice(0, 40)} ...<span className="link-hover">see more</span>
                                                 </p>
                                             </div>
                                         </div>

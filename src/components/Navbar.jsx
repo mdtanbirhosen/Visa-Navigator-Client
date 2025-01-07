@@ -12,29 +12,24 @@ const Navbar = ({ toggleTheme }) => {
     const links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/all_visas'}>All visas</NavLink></li>
-        <li><NavLink to={'/add_visa'}>Add visa</NavLink></li>
-        <li><NavLink to={'/my_added_visas'}>My added visas</NavLink></li>
-        <li><NavLink to={'/my_visa_application'}>My Visa applications</NavLink></li>
+        {user && <>
+            <li><NavLink to={'/add_visa'}>Add visa</NavLink></li>
+            <li><NavLink to={'/my_added_visas'}>My added visas</NavLink></li>
+            <li><NavLink to={'/my_visa_application'}>My Visa applications</NavLink></li>
+        </>}
 
 
     </>
 
 
-    {/* <div className="example-container">
-  <a data-tooltip-id="my-tooltip-border" data-tooltip-content="Hello world!">
-    ◕‿‿◕
-  </a>
-  <Tooltip id="my-tooltip-border" border="1px solid red" />
-</div> */}
-
     return (
-        <div className="navbar ">
+        <div className="navbar max-w-7xl mx-auto fixed top-2 bg-[#EDF5FF] bg-opacity-40  rounded-lg ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
+                            className="h-5 w-5 text-primary-color"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -51,10 +46,10 @@ const Navbar = ({ toggleTheme }) => {
                         {links}
                     </ul>
                 </div>
-                <a className={`btn btn-ghost p-1 text-xl md:text-2xl font-bold  hidden sm:flex`}>VISA_NAVIGATOR</a>
+                <a className={`btn btn-ghost p-1 text-xl md:text-2xl text-primary-color font-bold  hidden sm:flex`}>VISA_NAVIGATOR</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 font-semibold">
+                <ul className="menu menu-horizontal px-1 font-semibold text-primary-color">
                     {links}
                 </ul>
             </div>

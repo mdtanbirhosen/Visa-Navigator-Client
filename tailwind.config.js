@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import daisyui from 'daisyui';
 export default {
   content: [
     "./index.html",
@@ -11,11 +12,11 @@ export default {
       }
     },
   },
-  plugins: [
-    // eslint-disable-next-line no-undef
-    require('daisyui'),
-  ],
+  plugins: [daisyui]
+  ,
   daisyui: {
     themes: ["light", "dark"], // Add more themes if needed
   },
 }
+
+// tailwind.config.js
