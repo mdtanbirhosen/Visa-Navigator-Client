@@ -7,7 +7,7 @@ import VisaProcess from "../components/VisaProcess";
 import VisaHighlights from "../components/VisaHighlights";
 
 const HomePage = () => {
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useState(localStorage.getItem('theme')|| "light");
 
     // Toggle between light and dark themes
     const toggleTheme = () => {
