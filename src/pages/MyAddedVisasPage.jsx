@@ -4,11 +4,13 @@ import Navbar from "../components/Navbar";
 import { AuthContext } from "../provider/AuthProvider";
 import ReuseableTitle from "../components/ReuseableTitle";
 import Swal from "sweetalert2";
-
+import { FaTableList } from "react-icons/fa6";
+import { FaTableCellsLarge } from "react-icons/fa6";
 const MyAddedVisasPage = () => {
     const { user } = useContext(AuthContext)
     const [visas, setVisas] = useState([])
     const [visa, setVisa] = useState({})
+    const [dataView, setDataView] = useState(true)
     useEffect(() => {
         fetch(`https://visa-navigator-server-side.vercel.app/visas/${user?.email}`)
             .then(res => res.json())
@@ -117,62 +119,123 @@ const MyAddedVisasPage = () => {
                         <div>
                             <ReuseableTitle title={`Welcome ${user?.displayName || user?.email}`} paragraph={`Here are some visa information that you added to our website.You can also delete and Update your added visas information . Thanks for adding visas in our website ${user?.displayName || user?.email}.`}></ReuseableTitle>
                         </div>
-                        <div className="bg-white rounded-lg px-3 pb-3 pt-10">
-                            <div className="grid  gap-5 md:grid-cols-2 lg:grid-cols-3">
-                                {
-                                    visas.map(visaInfo => <div
-                                        key={visaInfo._id}
-                                        className="bg-[#EDF5FF] rounded-lg shadow-md overflow-hidden flex flex-col h-full"
-                                    >
-                                        <div className="p-3">
-                                            <div className="p-2 rounded-lg bg-white flex justify-between items-center">
-                                                <img
-                                                    src={visaInfo.countryImage}
-                                                    alt={`${visaInfo.country} flag`}
-                                                    className="h-[150px] md:h-[200px] w-full rounded-lg object-cover"
-                                                />
-
-                                            </div>
-                                        </div>
-                                        <div className="p-4 flex-1 space-y-1">
-                                            <div>
-                                                <h2 className="text-xl font-bold text-gray-800">{visaInfo.countryName}</h2>
-                                                <p className="text-gray-600">
-                                                    <strong>Visa Type:</strong> {visaInfo.visaType}
-                                                </p>
-                                                <p className="text-gray-600">
-                                                    <strong>Processing Time:</strong> {visaInfo.processingTime}
-                                                </p>
-                                                <p className="text-gray-600">
-                                                    <strong>Fee:</strong> {visaInfo.fee}$
-                                                </p>
-                                                <p className="text-gray-600">
-                                                    <strong>Validity:</strong> {visaInfo.validity}
-                                                </p>
-                                                <p className="text-gray-600">
-                                                    <strong>Application Method:</strong> {visaInfo.applicationMethod}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="p-4 mt-auto flex  gap-5">
-                                            <button
-                                                onClick={() => {
-                                                    setVisa(visaInfo)
-                                                    document.getElementById('my_modal_2').showModal()
-                                                }}
-                                                className="px-7 py-3 font-semibold border-2 rounded-lg text-white bg-green-500 hover:bg-black w-full">
-                                                Update
-                                            </button>
-                                            <button onClick={() => handleDelete(visaInfo._id)} className="px-7 py-3 font-semibold border-2 rounded-lg text-white bg-red-500 hover:bg-black w-full">
-                                                Delete
-                                            </button>
+                        <div className="bg-white rounded-lg px-3 pb-3 pt-5">
 
 
-                                        </div>
-                                    </div>
-                                    )
-                                }
+
+
+                            {/* toggle view button */}
+                            <div className="flex justify-end">
+                                <span className="mr-2">View Mode :</span> <button className="pr-5 text-2xl text-primary-color" onClick={() => setDataView(!dataView)}> {dataView ? <FaTableCellsLarge /> : <FaTableList/>}</button>
                             </div>
+
+
+
+                            {/* for table view */}
+                            {
+                                dataView ?
+                                    <div className="overflow-x-auto ">
+                                        <table className="table w-full">
+                                            {/* head */}
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>image</th>
+                                                    <th>name</th>
+                                                    <th>update</th>
+                                                    <th>delete</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {
+                                                    visas.map((visaInfo, index) => <tr key={visaInfo._id} className="bg-[#EDF5FF]">
+                                                        <th>{index + 1}</th>
+                                                        <td><img
+                                                            className="h-[50px] lg:h-[70px] w-[50px] lg:w-[70px] object-cover rounded-xl"
+                                                            src={visaInfo.countryImage} alt="" /></td>
+                                                        <td>{visaInfo.countryName}</td>
+                                                        <td>
+                                                            <button
+                                                                onClick={() => {
+                                                                    setVisa(visaInfo)
+                                                                    document.getElementById('my_modal_2').showModal()
+                                                                }}
+                                                                className="btn font-semibold  rounded-lg text-white bg-green-500 hover:bg-black">
+                                                                Update
+                                                            </button>
+                                                        </td>
+                                                        <td>
+                                                            <button onClick={() => handleDelete(visaInfo._id)} className="px-7 py-3 font-semibold rounded-lg text-white bg-red-500 hover:bg-black ">
+                                                                Delete
+                                                            </button>
+                                                        </td>
+                                                    </tr>)
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    :
+                                    <div className="grid  gap-5 md:grid-cols-2 lg:grid-cols-3">
+                                        {
+                                            visas.map(visaInfo => <div
+                                                key={visaInfo._id}
+                                                className="bg-[#EDF5FF] rounded-lg shadow-md overflow-hidden flex flex-col h-full"
+                                            >
+                                                <div className="p-3">
+                                                    <div className="p-2 rounded-lg bg-white flex justify-between items-center">
+                                                        <img
+                                                            src={visaInfo.countryImage}
+                                                            alt={`${visaInfo.country} flag`}
+                                                            className="h-[150px] md:h-[200px] w-full rounded-lg object-cover"
+                                                        />
+
+                                                    </div>
+                                                </div>
+                                                <div className="p-4 flex-1 space-y-1">
+                                                    <div>
+                                                        <h2 className="text-xl font-bold text-gray-800">{visaInfo.countryName}</h2>
+                                                        <p className="text-gray-600">
+                                                            <strong>Visa Type:</strong> {visaInfo.visaType}
+                                                        </p>
+                                                        <p className="text-gray-600">
+                                                            <strong>Processing Time:</strong> {visaInfo.processingTime}
+                                                        </p>
+                                                        <p className="text-gray-600">
+                                                            <strong>Fee:</strong> {visaInfo.fee}$
+                                                        </p>
+                                                        <p className="text-gray-600">
+                                                            <strong>Validity:</strong> {visaInfo.validity}
+                                                        </p>
+                                                        <p className="text-gray-600">
+                                                            <strong>Application Method:</strong> {visaInfo.applicationMethod}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div className="p-4 mt-auto flex  gap-5">
+                                                    <button
+                                                        onClick={() => {
+                                                            setVisa(visaInfo)
+                                                            document.getElementById('my_modal_2').showModal()
+                                                        }}
+                                                        className="px-7 py-3 font-semibold border-2 rounded-lg text-white bg-green-500 hover:bg-black w-full">
+                                                        Update
+                                                    </button>
+                                                    <button onClick={() => handleDelete(visaInfo._id)} className="px-7 py-3 font-semibold border-2 rounded-lg text-white bg-red-500 hover:bg-black w-full">
+                                                        Delete
+                                                    </button>
+
+
+                                                </div>
+                                            </div>
+                                            )
+                                        }
+                                    </div>
+                            }
+
+                            {/* for card view */}
+
                         </div>
                     </div>
 
