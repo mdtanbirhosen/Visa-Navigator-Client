@@ -8,7 +8,7 @@ const LatestVisas = () => {
     const visaInformation = loadedVisaInformation?.slice((loadedVisaInformation.length - 6),loadedVisaInformation?.length)?.reverse()
 
     useEffect(()=>{
-        fetch('https://visa-navigator-server-side.vercel.app/visas')
+        fetch(`${import.meta.env.VITE_BASE_URL}/visas`)
         .then(res =>res.json())
         .then(data => {
             setLoadedVisaInformation(data)

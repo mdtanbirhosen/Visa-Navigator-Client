@@ -12,7 +12,7 @@ const MyAddedVisasPage = () => {
     const [visa, setVisa] = useState({})
     const [dataView, setDataView] = useState(true)
     useEffect(() => {
-        fetch(`https://visa-navigator-server-side.vercel.app/visas/${user?.email}`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/visas/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -47,7 +47,7 @@ const MyAddedVisasPage = () => {
 
         console.log(updatedVisa)
 
-        fetch(`https://visa-navigator-server-side.vercel.app/visa`, {
+        fetch(`${import.meta.env.VITE_BASE_URL}/visa`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -83,7 +83,7 @@ const MyAddedVisasPage = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://visa-navigator-server-side.vercel.app/visa/${_id}`, {
+                fetch(`${import.meta.env.VITE_BASE_URL}/visa/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

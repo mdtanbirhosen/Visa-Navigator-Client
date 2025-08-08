@@ -21,7 +21,7 @@ const VisaDetailsPage = () => {
         const fee = formData.get('fee');
         const appliedUserForVisa ={firstName,lastName, fullName, email, appliedDate, fee, visaInfo:singleVisa}
         console.log(appliedUserForVisa)
-        fetch('https://visa-navigator-server-side.vercel.app/appliedVisas',{
+        fetch(`${import.meta.env.VITE_BASE_URL}/appliedVisas`,{
             method:'POST',
             headers:{
                 'content-type': 'application/json'
